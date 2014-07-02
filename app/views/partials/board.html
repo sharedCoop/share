@@ -1,0 +1,79 @@
+<div ng-include="'partials/navbar'"></div>
+<div>
+	<div class="white_board_contian">
+		<div ng-controller="TodoTaskListCtrl" class="white_board" droppable="">
+			<div class="white_board_header">TO DO</div>
+			<div ng-repeat="task in tasks" class="task_contain" draggable=""  ng-mouseover="task.isShowEdit = true" ng-mouseout="task.isShowEdit = false">
+				<div class="task_title">{{task.title}}</div>
+				<!-- <div class="task_tool_edit" ng-show="task.isShowEdit">edit</div> -->
+				<div class="task_tool_edit" ng-show="task.isShowEdit">
+					<button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Remove" style="padding:3px 5px;">X</button>
+				</div>
+			</div>
+			<div class="white_board_footer" ng-show="!isShowCreateEdit">
+				<a class="task_add" ng-click="showNewTask()">New Task</a>
+			</div>
+			<form class="task_quick_contain" ng-submit="createNewTask()" ng-show="isShowCreateEdit">
+				<div class="task_quick_input">
+					<input type="text" ng-model="todo" class="task_quick_input form-control" placeholder="Please input the task">
+				</div>
+				<div class="task_quick_action">
+					<input type="submit" class="btn btn-primary" value="Add">
+					<!-- <button type="button" class="btn btn-primary">Add</button> -->
+					<button type="button" class="task_quick_action close" aria-hidden="true" ng-click="cancelCreatedTask()">&times;</button>
+				</div>
+			</form>
+		</div>
+
+		<div ng-controller="DoingTaskListCtrl" class="white_board" droppable="">
+			<div class="white_board_header">Doing</div>
+			<div ng-repeat="task in tasks" class="task_contain" draggable="" ng-mouseover="task.isShowEdit = true" ng-mouseout="task.isShowEdit = false">
+				<div class="task_title">{{task.title}}</div>
+				<div class="task_tool_edit" ng-show="task.isShowEdit">
+					<button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Remove" style="padding:3px 5px;">X</button>
+				</div>
+			</div>
+
+			<div class="white_board_footer" ng-show="!isShowCreateEdit">
+				<a class="task_add" ng-click="showNewTask()">New Task</a>
+			</div>
+
+			<form class="task_quick_contain" ng-submit="createNewTask()" ng-show="isShowCreateEdit">
+				<div class="task_quick_input">
+					<input type="text" ng-model="doing" class="task_quick_input form-control" placeholder="Please input the task">
+				</div>
+				<div class="task_quick_action">
+					<input type="submit" class="btn btn-primary" value="Add">
+					<!-- <button type="button" class="btn btn-primary">Add</button> -->
+					<button type="button" class="task_quick_action close" aria-hidden="true" ng-click="cancelCreatedTask()">&times;</button>
+				</div>
+			</form>
+
+		</div>
+
+		<div ng-controller="ArchiveTaskListCtrl" class="white_board" droppable="">
+			<div class="white_board_header">Archrive</div>
+			<div ng-repeat="task in tasks" class="task_contain" draggable="" ng-mouseover="task.isShowEdit = true" ng-mouseout="task.isShowEdit = false">
+
+				<div class="task_title">{{task.title}}</div>
+				<div class="task_tool_edit" ng-show="task.isShowEdit">
+					<button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Remove" style="padding:3px 5px;">X</button>
+				</div>
+
+			</div>
+			<div class="white_board_footer" ng-show="!isShowCreateEdit">
+				<a class="task_add" ng-click="showNewTask()">New Task</a>
+			</div>
+			<form class="task_quick_contain" ng-submit="createNewTask()" ng-show="isShowCreateEdit">
+				<div class="task_quick_input">
+					<input type="text" ng-model="archive" class="task_quick_input form-control" placeholder="Please input the task">
+				</div>
+				<div class="task_quick_action">
+					<input type="submit" class="btn btn-primary" value="Add">
+					<!-- <button type="button" class="btn btn-primary">Add</button> -->
+					<button type="button" class="task_quick_action close" aria-hidden="true" ng-click="cancelCreatedTask()">&times;</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

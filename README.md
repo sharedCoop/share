@@ -1,4 +1,4 @@
 Shared
 ======
 
-Shared board for list all task everyone attended it.
+Shared board to list all task for everyone attended it.

@@ -4,6 +4,30 @@ body {
   padding-bottom: 20px;
 }
 
+a.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.img-24 {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: 24px 24px;
+}
+.img-circle {
+  border-radius: 50%;
+}
+
+
+.nav-separate {
+  border-left: 1px solid rgba(0,0,0,0.07);
+}
+
+.nav .search-handler {
+  width: 60px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

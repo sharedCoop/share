@@ -3,10 +3,10 @@
 angular.module('shareApp')
   .controller('BoardCtrl', function ($scope, $http, Task) {
     console.log("Enter White board!");
-    console.log(Task);
-    $http.get('api/tasks').success(function(tasks_data) {
-      console.log(tasks_data);
-    });
+    // console.log(Task);
+    // $http.get('api/tasks').success(function(tasks_data) {
+    //   console.log(tasks_data);
+    // });
   });
 
 angular.module('shareApp')

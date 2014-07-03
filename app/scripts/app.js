@@ -1,37 +1,40 @@
 'use strict';
 
-angular.module('testApp', [
+angular.module('shareApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ui.router'
 ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-			.when('/board', {
-				        templateUrl: 'partials/board',
-								        controller: 'BoardCtrl'
-												      })
-      .when('/login', {
-        templateUrl: 'partials/login',
-        controller: 'LoginCtrl'
+      .state('board', {
+        url: '/board',
+        templateUrl: 'partials/board',
+        controller: 'BoardCtrl'
       })
-      .when('/signup', {
+      .state('signin', {
+        url: '/signin',
+        templateUrl: 'partials/signin',
+        controller: 'SigninCtrl'
+      })
+      .state('signup', {
+        url: '/signup',
         templateUrl: 'partials/signup',
         controller: 'SignupCtrl'
       })
-      .when('/settings', {
+      .state('settings', {
+        url: '/settings',
         templateUrl: 'partials/settings',
         controller: 'SettingsCtrl',
         authenticate: true
-      })
-      .otherwise({
-        redirectTo: '/'
       });
+    $urlRouterProvider.otherwise('/');
       
     $locationProvider.html5Mode(true);
       
@@ -40,7 +43,7 @@ angular.module('testApp', [
       return {
         'responseError': function(response) {
           if(response.status === 401) {
-            $location.path('/login');
+            $location.path('/signin');
             return $q.reject(response);
           }
           else {
@@ -56,7 +59,7 @@ angular.module('testApp', [
     $rootScope.$on('$routeChangeStart', function (event, next) {
       
       if (next.authenticate && !Auth.isLoggedIn()) {
-        $location.path('/login');
+        $location.path('/signin');
       }
     });
   });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testApp')
+angular.module('shareApp')
   .controller('BoardCtrl', function ($scope, $http, Task) {
     console.log("Enter White board!");
     console.log(Task);
@@ -9,7 +9,7 @@ angular.module('testApp')
     });
   });
 
-angular.module('testApp')
+angular.module('shareApp')
   .controller('TodoTaskListCtrl',
   function($scope, $http, Task) {
     Task.getTasks($http, null, "todo", function(err, res) {
@@ -78,7 +78,7 @@ angular.module('testApp')
   //  $scope.orderProp = 'age';
   });
 
-angular.module('testApp')
+angular.module('shareApp')
 .controller('DoingTaskListCtrl', ['$scope', '$http',
   function($scope, $http) {
     $scope.tasks = do_task_data;
@@ -116,7 +116,7 @@ angular.module('testApp')
     };
   }]);
 
-angular.module('testApp')
+angular.module('shareApp')
 .controller('ArchiveTaskListCtrl', ['$scope', '$http',
   function($scope, $http) {
     $scope.tasks = archive_task_data;

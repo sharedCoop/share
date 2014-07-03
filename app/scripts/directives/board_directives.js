@@ -1,7 +1,7 @@
 'use strict';
 
 var data_transfer = [];
-angular.module('testApp')
+angular.module('shareApp')
   .directive('draggable', function() {
   return function(scope, element) {
       var el = element[0];
@@ -38,7 +38,7 @@ angular.module('testApp')
       }, false);
     }
 });
-angular.module('testApp')
+angular.module('shareApp')
 .directive('droppable', function() {
   return {
     scope: {

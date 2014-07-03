@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testApp')
+angular.module('shareApp')
   .factory('Session', function ($resource) {
     return $resource('/api/session/');
   });

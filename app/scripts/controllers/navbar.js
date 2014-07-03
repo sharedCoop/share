@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testApp')
+angular.module('shareApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',

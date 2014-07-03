@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testApp')
+angular.module('shareApp')
   .factory('User', function ($resource) {
     return $resource('/api/users/:id', {
       id: '@id'

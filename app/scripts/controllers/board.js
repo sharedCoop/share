@@ -33,32 +33,42 @@ angular.module('shareApp')
         "id": "task_id_" + index++,
         "info": $scope.todo
       };
-      $scope.tasks.push(task);
-      $scope.todo = '';
+      
       // submit to server
-      task_JSON.title = task.title;
-      task_JSON.id = task.id;
-      task_JSON.info = task.info;
-      Task.createTask($http, task_JSON)
-        .then( function() {
-          // Account created, redirect to home
-          console.log("createNewTask then....");
-        })
-        .catch( function(err) {
-          err = err.data;
-          $scope.errors = {};
-
-          // Update validity of form fields that match the mongoose errors
-          angular.forEach(err.errors, function(error, field) {
-            form[field].$setValidity('mongoose', false);
-            $scope.errors[field] = error.message;
-          });
+      task.projectId = "all";
+      task.status = "todo";
+      Task.createTask($http, task, function(err, res) {
+          if (err) {
+            console.log(err);
+            return;
+          }
+          $scope.tasks.push(task);
+          $scope.todo = '';
         });
+        // .catch( function(err) {
+        //   err = err.data;
+        //   $scope.errors = {};
+
+        //   // Update validity of form fields that match the mongoose errors
+        //   angular.forEach(err.errors, function(error, field) {
+        //     form[field].$setValidity('mongoose', false);
+        //     $scope.errors[field] = error.message;
+        //   });
+        // });
     };
 
     $scope.removeTask = function (index) {
-      console.log(index);
-      $scope.tasks.splice(index, 1);
+      console.log("removeTask");
+    //  console.log($scope.tasks[index]);
+      
+      Task.removeTask($http, $scope.tasks[index], "todo", function(err, res) {
+        if (err) {
+          alert(err);
+        } else {
+          console.log("removeTask");
+          $scope.tasks.splice(index, 1);
+        }      
+      });
     };
 
     $scope.cancelCreatedTask = function() {
@@ -161,12 +171,12 @@ var task_JSON = {
   "checkList": "check list",
   "members": ['',''],
   "creator": "Who did it create",
-  "create_time": "created time",
+  "createTime": "created time",
   "label": "The classic of project",
-  "due_date": "End of time",
+  "dueDate": "End of time",
   "workLoad": 8,// "1|3|5|8|13",
-  "project_id": "the index of project",
-  "project_name": "project name",
+  "projectId": "the index of project",
+  "projectName": "project name",
   "status": "todo|doing|archive",
   "delay": ""
 };

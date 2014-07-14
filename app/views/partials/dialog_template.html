@@ -1,0 +1,55 @@
+<div id="dialogTemplate" style="width: 650px;">
+		<div class="modal-header">
+			<h5 class="modal-title">
+				<span class="glyphicon glyphicon-star"></span>
+			 	Edit the task
+			 </h5>
+		 </div>
+		 <div class="modal-body">
+		 	<div class="task_item_contian task_title_contain">
+		 		<p class="task_name">Title</p>
+	 			<p class="task_name" ng-show="title_can_edit"></p>
+	 			<ng-form name="taskName" role="form" ng-show="title_can_edit">
+	 				<input type="text" class="form-control" name="task_tile" id="task_title"></input>
+	 			</ng-form>
+	 		</div>
+	 		<div class="task_item_contian task_info_contain">
+	 			<p class="detail_info">Description</p>
+	 			<p class="detail_info" ng-show="info_can_edit"></p>
+	 			<ng-form name="infoName" role="form" ng-show="info_can_edit">
+	 				<input type="text" class="form-control" name="task_detail_info" id="task_detail_info"></input>
+	 			</ng-form>
+	 		</div>
+	 		<div class="task_item_contian task_label_contain">
+		 		<div class="input-group">
+		 			<p class="input-group-addon task_label_label">Label:</p>
+		 			<input type="text" class="form-control task_label" placeholder="You can input the classic or type of this task.">
+		 		</div>
+	 		</div>
+	 		<div class="task_item_contian task_members_contain">
+				   <div class="input-group">
+				    
+				      <input type="text" class="form-control" placeholder="Please input member' name!">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Search</button>
+				      </span>
+				   </div>
+			</div>
+			<div class="task_item_contian task_workload_contain">
+				<div class="btn-group">
+				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				    Workload <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" role="menu">
+				    <li><a href="#">Workload</a></li>
+				    <li><a href="#">Duedate/a></li>
+				  </ul>
+				</div>
+			</div>
+
+		 </div>
+		 <div class="modal-footer">
+		 	<button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+		 	<button type="button" class="btn btn-primary" ng-click="save()" >Save</button>
+		 </div>
+	</div>

@@ -1,0 +1,24 @@
+@charset "utf-8";
+.ngdialog-content {
+	width: 680px;
+}
+#dialogTemplate {
+	width: 650px;
+}
+.modal-header {
+	height: 45px;
+}
+.modal-footer {
+	height: 50px;
+
+}
+.modal-body {
+	min-height: 220px;
+}
+.task_title_contain {
+	position: relative;
+	white-space: nowrap;
+}
+.task_item_contian {
+	padding: 5px;
+}

@@ -1,0 +1,21 @@
+@charset "utf-8";
+.ngdialog-content {
+	width: 680px;
+}
+#dialogTemplate {
+	width: 650px;
+	border: 2px;
+}
+.modal-header {
+	height: 45px;
+}
+.modal-footer {
+	height: 50px;
+
+}
+.modal-body {
+	min-height: 220px;
+}
+.row {
+	padding: 5px;
+}

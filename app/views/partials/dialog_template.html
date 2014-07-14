@@ -1,0 +1,75 @@
+<div id="dialogTemplate">
+	<div class="modal-header">
+		<h5 class="modal-title">
+			<span class="glyphicon glyphicon-star"></span>
+		 	Edit the task
+		</h5>
+	 </div>
+	 <div class="modal-body">
+	 	<div class="row">
+	 		<div class="col-md-2">Title</div>
+	 		<div class="col-md-10">
+		 		<button class="btn btn-default" type="button" ng-show="!title_can_edit" ng-click="editTitle()">A instance of task&apos; title</button>
+	 			<div class="input-group" ng-show="title_can_edit">				    
+		      <input type="text" class="form-control" name="task_title" ng-value="task_title">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button" ng-click="submitTitle()">OK</button>
+		      </span>
+		   	</div>
+	   	</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-md-2">Description</div>
+ 			<div class="col-md-10">
+ 				<button class="btn btn-default" type="button" ng-show="!info_can_edit" ng-click="editInfo()">A instance of task&apos; description</button>
+	 			<div class="input-group" ng-show="info_can_edit">				    
+		      <input type="text" class="form-control" name="task_detail_info" ng-value="task_detail_info">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button" ng-click="submitDescription()">OK</button>
+		      </span>
+		   	</div>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+	 		<p class="col-md-2">Label</p>
+	 		<div class="col-md-10">
+		 		<div class="input-group">	
+		 			<input type="text" class="form-control" placeholder="You can input the classic or type of this task.">
+		 			<span class="input-group-btn">
+			      <button class="btn btn-default" type="button" ng-click="submitLabel()">OK</button>
+			    </span>
+		    </div>
+	 		</div>
+ 		</div>
+ 		<div class="row">
+ 			<p class="col-md-2">Members</p>
+ 			<div class="col-md-10">
+				<div class="input-group">				    
+				  <input type="text" class="form-control" placeholder="Please input member' name!">
+				  <span class="input-group-btn">
+				    <button class="btn btn-default" type="button">Search</button>
+				  </span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="btn-group">
+				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				    Workload<span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" role="menu">
+				    <li><a href="#">Workload</a></li>
+				    <li><a href="#">Duedate/a></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="col-md-10"></div>
+		</div>
+
+	 </div>
+	 <div class="modal-footer">
+	 	<button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+	 	<button type="button" class="btn btn-primary" ng-click="save()" >Save</button>
+	 </div>
+</div>

@@ -1,12 +1,22 @@
 'use strict';
 
 angular.module('shareApp')
-  .controller('BoardCtrl', function ($scope, $http, Task) {
-    console.log("Enter White board!");
-    // console.log(Task);
-    // $http.get('api/tasks').success(function(tasks_data) {
-    //   console.log(tasks_data);
-    // });
+  .controller('BoardCtrl', function ($scope, $rootScope, ngDialog) {
+    $rootScope.theme = 'ngdialog-theme-default';
+
+    $scope.openDialog = function () {
+      ngDialog.open({ template: 'partials/dialog_template.html', controller: 'DialogCtrl' });
+      // ngDialog.open({ template: 'dialog_template.html', controller: 'DialogCtrl', taskObj: $rootScope.taskData});
+    };
+    
+
+    $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+      console.log('ngDialog opened: ' + $dialog.attr('id'));
+    });
+
+    $rootScope.$on('ngDialog.closed', function (e, $dialog) {
+      console.log('ngDialog closed: ' + $dialog.attr('id'));
+    });
   });
 
 angular.module('shareApp')

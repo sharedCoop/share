@@ -16,6 +16,10 @@
 .modal-body {
 	min-height: 220px;
 }
-.row {
+.task_title_contain {
+	position: relative;
+	white-space: nowrap;
+}
+.task_item_contian {
 	padding: 5px;
 }

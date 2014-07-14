@@ -1,11 +1,12 @@
 
+
 <div class="container">
 	<div class="white_board_contian">
 		<div ng-controller="TodoTaskListCtrl" class="white_board" droppable="">
 			<div class="white_board_header">TO DO</div>
-			<div ng-repeat="task in tasks" class="task_contain" draggable="" ng-mouseover="task.isShowEdit = true" ng-mouseout="task.isShowEdit = false">
-				<div class="task_title" ng-controller="OpenTaskDilalogCtrl" ng-click="open()">{{task.title}}</div>
-				<!-- <div class="task_tool_edit" ng-show="task.isShowEdit">edit</div> -->
+			<div ng-repeat="task in tasks" class="task_contain" draggable=""  ng-mouseover="task.isShowEdit = true" ng-mouseout="task.isShowEdit = false">
+				<div class="task_title" ng-click="openDialog()">{{task.title}}</div>
+				<!-- <div class="task_tool_edit" ng-controller="OpenTaskDilalogCtrl" ng-show="task.isShowEdit">edit</div> -->
 				<div class="task_tool_edit" ng-show="task.isShowEdit">
 					<button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Remove" style="padding:3px 5px;">X</button>
 				</div>

@@ -20,22 +20,6 @@ angular.module('shareApp')
   });
 
 angular.module('shareApp')
-  .controller('DialogCtrl', function ($scope, ngDialog) {
-    $scope.dialogModel = {
-        message : 'message from passed scope'
-    };
-    $scope.editTitle = function() {
-      $scope.title_can_edit = true;
-      this.task_title = "The title of resource.";
-    };
-    $scope.submitTitle = function() {
-      this.title_can_edit = false;
-    };
-    console.log("dialog is opened?");
-
-  });
-  
-angular.module('shareApp')
   .controller('TodoTaskListCtrl',
   function($scope, $http, Task) {
     Task.getTasks($http, null, "todo", function(err, res) {
